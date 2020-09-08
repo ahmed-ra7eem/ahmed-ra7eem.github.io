@@ -1,0 +1,76 @@
+// Assign colors to variables
+:root {
+    // main background color
+    --main-bg-color: #1E202A;
+    // sections background color
+    --sec-bg-color: #3f4853;
+    // main color ( For fonts )
+    --main-color: #EBEBEB;
+    // Second Color ( Special Colors )
+    --second-color: #11a3e7;
+    // Dark colors
+    --dark-color: rgba(34, 34, 34);
+
+    // rgba colors
+    // main background color
+    --main-bg-color-rgba: 45, 57, 78;
+}
+
+body {
+    background-color: var(--main-bg-color); 
+    background-image: url('../imgs/bg.png');
+    color: var(--main-color);
+    font-family: $main-font;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+li, p{
+    font-size: 16px;
+    color: #b5bbbf;
+}
+
+a {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none !important;
+    outline: 0;
+}
+
+h2 {font-size: 32px;}
+h3 {font-size: 24px;}
+h4 {font-size: 20px;}
+
+h1, h2, h3, h4 {
+    color: var(--main-color);
+}
+
+h2 {
+    margin-bottom: 20px;
+    position: relative;
+    span {
+        color: var(--second-color);
+    }
+}
+
+h2 ~ p {
+    color: #b5bbbf;
+    width: 70%;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.about, .projects, .contact {
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    padding-top: 120px;
+    overflow-y: auto;
+}

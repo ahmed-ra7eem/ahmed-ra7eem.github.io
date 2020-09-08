@@ -1,0 +1,19 @@
+// Classes To Extend
+
+// has data
+.label-data label{
+    @include abs-position(2px !important, auto, auto, 5px !important);
+    font-size: 11px !important;
+}
+
+// overlay
+%overlay {
+    content: "";
+    background-color: rgba(var(--main-bg-color-rgba), .3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}

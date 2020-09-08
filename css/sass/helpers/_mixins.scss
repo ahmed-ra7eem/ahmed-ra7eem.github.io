@@ -1,0 +1,61 @@
+// Opacity
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    -webkit-filter: alpha(opacity = $opacity-ie);
+    filter: alpha(opacity = $opacity-ie);
+}
+
+// prefixer
+@mixin prefixer($property, $value) {
+    -webkit-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    #{$property}: #{$value};
+}
+
+// vertical center
+@mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefixer(transform, translate(-50%, -50%));
+}
+
+// abs-position
+@mixin abs-position($top, $right, $bottom, $left) {
+    content: '';
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// flex center
+@mixin flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+// animation Keyframes
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+
+
+
+
+

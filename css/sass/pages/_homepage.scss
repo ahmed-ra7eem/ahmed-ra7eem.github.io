@@ -1,0 +1,366 @@
+/* Start Header */
+header {
+    background: inherit;
+    width: 100%;
+    z-index: 9999;
+    @include prefixer(user-select, (none));
+    @include abs-position(0 , auto, auto, 0);
+    .brand {
+        color: var(--main-color);
+        font-size: 14px;
+        float: $float-left;
+        font-weight: bold;
+        padding-top: 15px;
+        span {
+            color: var(--second-color);
+        }
+    }
+    .navigation {
+        float: $float-right;
+        padding: 10px 0;
+        li {
+            border: 1px solid transparent;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            padding: 4px 8px;
+            overflow: hidden;
+            @include prefixer(transition, (.5s));
+            &:hover {
+                border: 1px solid var(--second-color);
+                @include prefixer(border-radius, (2px));
+            }
+            &.active {
+                border: 1px solid var(--second-color);
+                color: var(--second-color);
+                font-weight: bold;
+                @include prefixer(border-radius, (2px));
+            }
+            &::before {
+                border-color: var(--second-color);
+            }
+        }
+    }
+}
+/* End Header */
+
+/* Start Bio */
+.bio {
+    width: 100vw;
+    padding: 100px 0;
+    overflow-y: auto;
+    .my-pic {
+        border: 2px solid var(--second-color);
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 25px;
+        overflow: hidden;
+        position: relative;
+        @include prefixer(border-radius, (50%));
+        &:after {
+            @extend %overlay;
+        }
+    }
+    .text {
+        margin-bottom: 25px;
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            span {
+                color: var(--second-color);
+            }
+        }
+        hr {
+            border-top: 2px solid;
+            width: 150px;
+            @include opacity(.1);
+        }
+    }
+    .buttons {
+        a {
+            border: 1px solid var(--second-color);
+            color: var(--main-color);
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 25px;
+            margin: 0 8px 10px;
+            position: relative;
+            overflow: hidden;
+            @include prefixer(border-radius, (20px));
+            @include prefixer(transition, (.5s));
+            &:first-child {
+                background: var(--second-color);
+                &:hover {
+                    background: none;
+                }
+            }
+            &:hover {
+                border: 1px solid var(--second-color);
+                color: var(--main-color);
+            }
+            &.hvr-bounce-to-right:before {
+                background-color: var(--main-bg-color);
+                background-image: url('../imgs/bg.png');
+            }
+            &.hvr-bounce-to-bottom:before {
+                background: var(--second-color);
+                border: 1px solid var(--second-color);
+            }
+            
+            i {
+                padding-right: 8px
+            }
+        }
+    }
+}
+/* End Bio */
+
+/* Start About */
+.about {
+    .row {
+        border-left: 1px solid var(--second-color);
+        padding-left: 30px;
+        margin: 50px 0 40px 15px;
+        .about-me {
+            background: var(--sec-bg-color);
+            border-bottom: 1px solid var(--second-color);
+            color: var(--main-color);
+            width: 100%;
+            margin-bottom: 50px;
+            padding: 10px;
+            @include prefixer(transition, (.5s));
+            @include prefixer(border-radius, (3px));
+            overflow: visible;
+            &:hover {
+                @include prefixer(box-shadow, (10px 10px 10px rgba($color: var(--dark-color), $alpha: .7)));
+            }
+            h3 {
+                color: var(--main-color);
+                margin-top: 0;
+                position: relative;
+                &::before {
+                    color: var(--second-color);
+                    font-size: 36px;
+                    font-family: Fontawesome;
+                    @include abs-position(-5px, auto, auto, -59px);
+                }
+                &.personal-head::before {
+                    content:"\f2be";
+                }
+                &.education-head::before {
+                    content:"\f19d";
+                    left: -63px;
+                }
+                &.skills-head::before {
+                    content:"\f069";
+                    left: -57px;
+                }
+            }
+            h4 {
+                i {
+                    color: var(--second-color);
+                    padding-right: 5px;
+                }
+            }
+            ul {
+                border-left: 1px solid var(--second-color);
+                li {
+                    line-height: 1.7;
+                }
+            }
+        }
+    }
+}
+/* End About */
+
+/* Start Projects */
+.projects {
+    ul {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        li {
+            background: var(--sec-bg-color);
+            cursor: pointer;
+            display: inline-block;
+            padding: 7px 15px;
+            margin-bottom: 10px;
+            @include prefixer(border-radius, (3px));
+            @include prefixer(transition, (.5s));
+            @include prefixer(user-select, (none));
+            overflow: hidden;
+            &:not(:last-child) {
+                margin-right: 5px;
+            }
+            &.active{
+                background: var(--second-color);
+                color: var(--main-color);
+                @include prefixer(border-radius, (3px));
+                @include prefixer(box-shadow, (5px 5px 5px rgba($color: var(--dark-color), $alpha: .5)));
+            }
+        }
+    }
+    .portfolio {
+        margin-bottom: 40px;
+        .mix {
+            padding: 5px;
+            .project {
+                position: relative;
+                border: 10px solid var(--sec-bg-color);
+                @include prefixer(border-radius, (3px));
+                @include prefixer(transition, (.5s));
+                &:hover{
+                    @include prefixer(box-shadow, (10px 10px 10px rgba($color: var(--dark-color), $alpha: .7)));
+                    .info {opacity: 1}
+                }
+                .info{
+                    background: var(--sec-bg-color);
+                    width: 100%;
+                    padding: 10px 5px;
+                    span.section {
+                        color: var(--second-color);
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    h3.title {
+                        font-size: 24px; 
+                        margin: 10px 0;
+                    }
+                    p.desc {
+                        color: #b5bbbf;
+                        font-size: 16px;
+                    }
+                    a{
+                        background: var(--second-color);
+                        border: none;
+                        color: var(--main-color);
+                        font-size: 12px;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        @include prefixer(border-radius, (3px));
+                        @include prefixer(box-shadow, (0 5px 20px rgba($color: var(--dark-color), $alpha: .3)));
+                        outline: 0;
+                        &::before{
+                            border-color: var(--second-color);
+                            @include prefixer(border-radius, (3px));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Projects */
+
+/* Start Contact */
+.contact {
+    h3 {
+        margin-bottom: 20px;
+    }
+    .form-section {
+        background: var(--sec-bg-color);
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        @include prefixer(border-radius, (3px));
+        form {
+            padding: 30px 15px;
+            overflow: hidden;
+            h3 {
+                margin-bottom: 40px;
+            }
+            .form-group {
+                position: relative;
+                .form-control{
+                    background: var(--main-color);
+                    font-size: 15px;
+                    padding-bottom: 3px;
+                    height: 46px;
+                    @include prefixer(box-shadow, (0 5px 20px rgba($color: var(--dark-color), $alpha: .2)));
+                    @include prefixer(transition, (.5s));
+                    @include prefixer(border-radius, (3px));
+                    &:focus + label {
+                        color: var(--second-color);
+                        @include abs-position(2px, auto, auto, 5px);
+                        font-size: 11px;
+                    }
+                }
+                label {
+                    color: var(--dark-color);
+                    font-size: 14px;
+                    @include opacity(.7);
+                    @include abs-position(12px, auto, auto, 10px);
+                    @include prefixer(transition, (.3s));
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    height: 108px !important;
+                    padding: 15px;
+                }
+                button{
+                    background: var(--second-color);
+                    color: var(--main-color);
+                    border: none;
+                    outline: 0;
+                    @include prefixer(border-radius, (3px));
+                    @include prefixer(box-shadow, (0 5px 20px rgba($color: var(--dark-color), $alpha: .3)));
+                    &::before{
+                        border-color: var(--second-color);
+                        @include prefixer(border-radius, (3px));
+                    }
+                    i {
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+        .con-info {
+            flex-wrap: wrap;
+        }
+        .address {
+            font-size: 15px;
+            font-weight: 300;
+            @media #{$maxMobile} {
+                margin-bottom: 40px;
+            }
+            &:hover .addr{
+                color: var(--second-color);
+                font-weight: bold;
+                display: block;
+                @include prefixer(transition, (.5s));
+            }
+            .addr {
+                i {
+                    display: block;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+        .social-links {
+            margin:30px auto 0;
+            a {
+                margin: 10px;
+                background-color: var(--main-color);
+                border: 2px solid var(--main-color);
+                padding: 10px 5px;
+                @include prefixer(border-radius, 50%);
+                @include prefixer(transition, (.5s));
+                
+                i {
+                    font-size: 24px;
+                }
+            }
+            @each $name, $color in $social {
+                .#{$name} {
+                    color: $color;
+                    &:hover {
+                        border: 2px solid $color;
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Contact */
